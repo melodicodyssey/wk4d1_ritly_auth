@@ -1,0 +1,26 @@
+<div class="container">
+<div class="jumbotron" style="background-color: rgba(250,250,250,10); color: black; border: 2px solid black">
+  <div style="display: inline">
+    <h1>Your Ritly url is...</h1>
+    <input type="text" value="localhost:3000/ritly/go/<%=@page.short_url%>" style="width: 300px">
+    <% if @page.has_custom? %>
+  </br>
+    <input type="text" value="localhost:3000/ritly/go/<%=@page.custom_url%>" style="width: 300px">
+    <% end %>
+    <h3>Takes you to...</h3>
+    <p><%=@page.entered_url %></p>
+    <iframe src="<%=@page.entered_url%>"></iframe>
+  </div>
+
+  <p>
+    </br>
+    <%= form_tag ("/ritly/update/#{@page.short_url}"), method: "patch" do %>
+      <%= submit_tag "New Rit", :class => "btn btn-lg btn-primary" %>
+      </br></br>
+      <%= text_field_tag :cust_url, nil, placeholder: "Or type a custom Rit!" %>
+    <% end %>
+  </p>
+</div>
+</div>
+
+<%= render partial: "links_table" %>
