@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@user = User.find(params[:id])
   end
 
   def create
@@ -13,14 +14,8 @@ class UsersController < ApplicationController
   		redirect_to index_path
   	else
   		flash[:invalid] = "Incorrect information"
-  		redirect_to new_users_path
+  		render new
   	end
   end
 
-  def user_params
-  	params.require(:user).permit(:username, :email, :password, :password_confirmation)
-  end
-
-
-  #put private methods here, like logged_in
 end
