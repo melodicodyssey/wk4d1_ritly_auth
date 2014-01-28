@@ -10,6 +10,7 @@
     </p>
     <% if flash[:in_use] %>
     <p style="color: red"><%=flash[:in_use] %></p>
+    <p style="color: green"><%=flash[:success]%></p>
     <% end %>
 </div>
 </div>
@@ -17,4 +18,6 @@
 <div class="container">
 </div>
 
-<%= render partial: "links_table" %>
+<a href="/users/new">Sign Up</a>
+<a href="sessions/new">Sign In</a>
+

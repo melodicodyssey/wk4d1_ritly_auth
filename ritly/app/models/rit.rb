@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: rits
+#
+#  id          :integer          not null, primary key
+#  entered_url :string(255)
+#  short_url   :string(255)
+#  custom_url  :string(255)
+#  visited     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Rit < ActiveRecord::Base
 
 	def self.url_taken? url
